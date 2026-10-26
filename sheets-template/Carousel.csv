@@ -1,0 +1,4 @@
+id,title,text,imageUrl,linkUrl,linkText,order,active
+1,Welcome to Company Portal,"Your one place for reports, services and company updates.",https://picsum.photos/seed/portal-welcome/1600/600,/app/reports,View reports,1,TRUE
+2,Quarterly Reports Available,The latest quarterly performance reports are ready to view.,https://picsum.photos/seed/portal-reports/1600/600,/app/services,Explore services,2,TRUE
+3,Scheduled Maintenance,Some services will be unavailable on Sunday between 2:00 and 4:00 AM IST.,https://picsum.photos/seed/portal-maintenance/1600/600,,,3,TRUE

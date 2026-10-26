@@ -1,0 +1,39 @@
+.carousel { position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); background: var(--navy-900); }
+.carousel__viewport { overflow: hidden; }
+.carousel__track { display: flex; transition: transform 0.5s ease; }
+
+.carousel__slide {
+  position: relative; flex: 0 0 100%; min-height: 240px; height: clamp(240px, 38vw, 400px);
+  display: flex; align-items: flex-end;
+  background: linear-gradient(135deg, var(--navy-900), var(--blue-700));
+}
+.carousel__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.carousel__shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 36, 71, 0.92) 0%, rgba(11, 36, 71, 0.55) 55%, rgba(11, 36, 71, 0.15) 100%); }
+.carousel__content { position: relative; color: #fff; padding: 24px 64px 56px; max-width: 760px; }
+.carousel__title { color: #fff; margin-bottom: 8px; font-size: clamp(1.25rem, 1rem + 1.6vw, 2rem); }
+.carousel__text { color: #e2e8f0; margin-bottom: 14px; font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.1rem); }
+
+.carousel__arrow {
+  position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
+  background: rgba(255, 255, 255, 0.92); color: var(--navy-900); border: 0; box-shadow: var(--shadow-sm);
+}
+.carousel__arrow:hover { background: #fff; }
+.carousel__arrow--prev { left: 12px; }
+.carousel__arrow--next { right: 12px; }
+
+.carousel__dots { position: absolute; left: 0; right: 0; bottom: 16px; display: flex; justify-content: center; gap: 4px; }
+/* 24px hit area, small visible dot */
+.carousel__dot { position: relative; width: 24px; height: 24px; background: none; border: 0; cursor: pointer; padding: 0; }
+.carousel__dot::after {
+  content: ''; position: absolute; top: 50%; left: 50%; width: 10px; height: 10px; transform: translate(-50%, -50%);
+  border-radius: 999px; background: rgba(255, 255, 255, 0.55); transition: width 0.2s, background-color 0.2s;
+}
+.carousel__dot--active::after { width: 26px; background: #fff; }
+
+@media (max-width: 640px) {
+  .carousel__content { padding: 20px 20px 52px; }
+  .carousel__arrow { width: 36px; height: 36px; top: 40%; }
+  .carousel__arrow--prev { left: 8px; }
+  .carousel__arrow--next { right: 8px; }
+}

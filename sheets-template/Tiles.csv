@@ -1,0 +1,9 @@
+id,title,description,icon,path,order,active
+1,Reports,View and download business reports and analytics.,reports,/app/reports,1,TRUE
+2,Services,Browse available services and submit requests.,services,/app/services,2,TRUE
+3,Settings,Manage your profile and preferences.,settings,/app/settings,3,TRUE
+4,Documents,"Policies, templates and shared files.",docs,/app/module/documents,4,TRUE
+5,Support,Raise a ticket or contact the help desk.,support,/app/module/support,5,TRUE
+6,Calendar,"Upcoming events, holidays and deadlines.",calendar,/app/module/calendar,6,TRUE
+7,Team Directory,Find colleagues and departments.,users,/app/module/directory,7,TRUE
+8,Notifications,Alerts and recent activity.,bell,/app/module/notifications,8,TRUE

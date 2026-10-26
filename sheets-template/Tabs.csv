@@ -1,0 +1,6 @@
+id,label,path,icon,order,active
+1,Home,/app/home,home,1,TRUE
+2,Reports,/app/reports,reports,2,TRUE
+3,Services,/app/services,services,3,TRUE
+4,Settings,/app/settings,settings,4,TRUE
+5,Logout,/logout,logout,5,TRUE
