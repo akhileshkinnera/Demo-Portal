@@ -213,13 +213,17 @@ function safeEqual_(a, b) {
 /* ------------------------------------------------------------------ */
 
 function getSpreadsheet_() {
+  var id = PropertiesService.getScriptProperties().getProperty('SHEET_ID');
+  if (id) return SpreadsheetApp.openById(id);
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   if (ss) return ss;
-  var id = PropertiesService.getScriptProperties().getProperty('SHEET_ID');
-  if (!id) throw new Error('Script is not bound to a spreadsheet and SHEET_ID is not set.');
-  return SpreadsheetApp.openById(id);
+  throw new Error('Run saveSheetId once from the editor.');
 }
-
+function saveSheetId() {
+  var id = SpreadsheetApp.getActiveSpreadsheet().getId();
+  PropertiesService.getScriptProperties().setProperty('SHEET_ID', id);
+  Logger.log('Saved sheet id: ' + id);
+}
 function readTable_(sheetName) {
   var sheet = getSpreadsheet_().getSheetByName(sheetName);
   if (!sheet) return [];
@@ -421,4 +425,10 @@ function ask_(ui, prompt) {
   var res = ui.prompt('Portal Admin', prompt, ui.ButtonSet.OK_CANCEL);
   if (res.getSelectedButton() !== ui.Button.OK) return null;
   return String(res.getResponseText()).trim();
+}
+function debugLogin() {
+  var out = doPost({ postData: { contents: JSON.stringify({
+    action: 'login', identifier: 'akhilesh', password: 'wrongpassword123'
+  }) } });
+  Logger.log(out.getContent());
 }
